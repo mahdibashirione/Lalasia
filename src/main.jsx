@@ -6,16 +6,13 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./feature/store.js";
 import { Toaster } from "react-hot-toast";
-import Layout from "./Layout/Layout.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <Layout>
-          <App />
-          <Toaster />
-        </Layout>
+        <App />
+        <Toaster />
       </Provider>
     </BrowserRouter>
   </React.StrictMode>
