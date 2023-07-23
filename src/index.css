@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-main {
+    color: #518581;
+  }
+
+  .bg-main {
+    background: #518581;
+  }
+
+  .border-main {
+    border-color: #518581;
+  }
+
+  .shadow-main {
+    box-shadow: 0 0 13px 5px rgba(81, 133, 129, 0.1);
+  }
+
+  .text-badge {
+    color: #ffb93f;
+  }
+
+  html {
+    color: #151411;
+  }
+
+  p {
+    color: #afadb5;
+  }
+}
