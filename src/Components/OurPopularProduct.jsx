@@ -17,7 +17,7 @@ const OurPopularProduct = () => {
       category: "Chair",
       name: "White Aesthetic Chair",
       description: "Combination of wood and wool",
-      price: "63.47",
+      price: "6347",
       tags: "chair",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -29,7 +29,7 @@ const OurPopularProduct = () => {
       category: "Lamp",
       name: "Bardono Smart Lamp",
       description: "Easy to use with bluetooth connection",
-      price: "62.23",
+      price: "6223",
       tags: "lamp",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -41,7 +41,7 @@ const OurPopularProduct = () => {
       category: "Sofa",
       name: "Sofa Empuk Banget",
       description: "Using kapuk randu material",
-      price: "58.39",
+      price: "5839",
       tags: "sofa",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -53,7 +53,7 @@ const OurPopularProduct = () => {
       category: "Living Room",
       name: "Wooden Bookshelf",
       description: "Combination of wood and wool",
-      price: "79.88",
+      price: "7988",
       tags: "living-room",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -65,7 +65,7 @@ const OurPopularProduct = () => {
       category: "Decoration",
       name: "Plant With Clay Stand",
       description: "Combination of wood and wool",
-      price: "61.49",
+      price: "6149",
       tags: "decoration",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -77,7 +77,7 @@ const OurPopularProduct = () => {
       category: "Decoration",
       name: "Oval Gold Mirror",
       description: "Combination of wood and wool",
-      price: "32.43",
+      price: "3243",
       tags: "decoration",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",

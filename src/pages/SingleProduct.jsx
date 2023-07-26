@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../feature/cart/cartSlice";
 import useToast from "../Hooks/useToast";
+import separate from "../utils/utils";
 
 const SingleProduct = () => {
   const { state } = useLocation();
@@ -26,7 +27,7 @@ const SingleProduct = () => {
       category: "Chair",
       name: "White Aesthetic Chair",
       description: "Combination of wood and wool",
-      price: "63.47",
+      price: "6347",
       tags: "chair",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -38,7 +39,7 @@ const SingleProduct = () => {
       category: "Lamp",
       name: "Bardono Smart Lamp",
       description: "Easy to use with bluetooth connection",
-      price: "62.23",
+      price: "6223",
       tags: "lamp",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -50,7 +51,7 @@ const SingleProduct = () => {
       category: "Sofa",
       name: "Sofa Empuk Banget",
       description: "Using kapuk randu material",
-      price: "58.39",
+      price: "5839",
       tags: "sofa",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -62,7 +63,7 @@ const SingleProduct = () => {
       category: "Living Room",
       name: "Wooden Bookshelf",
       description: "Combination of wood and wool",
-      price: "79.88",
+      price: "7988",
       tags: "living-room",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -74,7 +75,7 @@ const SingleProduct = () => {
       category: "Decoration",
       name: "Plant With Clay Stand",
       description: "Combination of wood and wool",
-      price: "61.49",
+      price: "6149",
       tags: "decoration",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -86,7 +87,7 @@ const SingleProduct = () => {
       category: "Decoration",
       name: "Oval Gold Mirror",
       description: "Combination of wood and wool",
-      price: "32.43",
+      price: "3243",
       tags: "decoration",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -181,7 +182,7 @@ const SingleProduct = () => {
             </div>
             {/* price */}
             <span className="font-bold text-2xl md:text-3xl">
-              ${product.price}
+              ${separate(product.price)}
             </span>
             {/* actions */}
             {isInCart <= 0 ? (
@@ -199,12 +200,14 @@ const SingleProduct = () => {
                 </button>
               </div>
             ) : (
-              <Link
-                to="/cart"
-                className="w-full px-6 py-3 text-sm md:text-base text-center block border border-main text-main rounded duration-200 hover:bg-green-50"
-              >
-                Go to cart
-              </Link>
+              <div className="flex gap-4">
+                <Link
+                  to="/cart"
+                  className="w-full px-6 py-3 text-sm md:text-base text-center block border border-main text-main rounded duration-200 hover:bg-green-50"
+                >
+                  Go to cart
+                </Link>
+              </div>
             )}
           </div>
         </article>

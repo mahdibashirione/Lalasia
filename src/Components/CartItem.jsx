@@ -6,12 +6,13 @@ import {
 } from "../feature/cart/cartSlice";
 import { FiMinus, FiPlus, FiTrash, FiTrash2 } from "react-icons/fi";
 import useToast from "../Hooks/useToast";
+import separate from "../utils/utils";
 
 const CartItem = ({ product }) => {
   const dispatch = useDispatch();
   const { successToast, errorToast } = useToast();
   return (
-    <div key={product.id} className="col-span-1 flex gap-3 pb-2 border-b">
+    <div key={product.id} className="col-span-1 flex gap-3 pb-3 border-b h-fit">
       {/* image */}
       <div className="w-[125px] h-[125px] min-w-[125px] rounded overflow-hidden">
         <img
@@ -32,7 +33,7 @@ const CartItem = ({ product }) => {
         <p className="text-sm  md:text-base flex items-center">
           Price :
           <span className="text-slate-800 text-base font-semibold ml-2">
-            ${product.price}
+            ${separate(product.price)}
           </span>
         </p>
         {/* quantity action */}
