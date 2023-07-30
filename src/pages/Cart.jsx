@@ -29,11 +29,10 @@ const CartPage = () => {
             <p>Total Cart :</p>
             <span className="font-bold">
               ${" "}
-              {separate(
-                cart.reduce((acc, cur) => {
-                  return (acc += cur.quantity * cur.price);
-                }, 0)
-              )}
+              {cart.reduce((acc, cur) => {
+                const result = (acc += cur.quantity * cur.price);
+                return Math.round(result);
+              }, 0)}
             </span>
           </div>
           <div className="w-full flex items-center justify-between border-b pb-3 mb-3">
@@ -44,16 +43,28 @@ const CartPage = () => {
             <p>Payable :</p>
             <span className="font-bold">
               ${" "}
-              {separate(
-                cart.reduce((acc, cur) => {
-                  return (acc += cur.quantity * cur.price);
-                }, 0)
-              )}
+              {cart.reduce((acc, cur) => {
+                const result = (acc += cur.quantity * cur.price);
+                return Math.round(result);
+              }, 0)}
             </span>
           </div>
-          <ButtonContain className="w-full py-2 mt-4" title="The Payment" />
+          <ButtonContain
+            className="w-full py-2 mt-4 md:block hidden"
+            title="The Payment"
+          />
         </div>
       </article>
+      <aside className="md:hidden fixed bottom-0 left-0 w-full px-4 py-2 border-t bg-white flex whitespace-nowrap gap-4 items-center text-lg">
+        <ButtonContain className="flex-1 py-2" title="The Payment" />
+        <span className="font-bold">
+          $ {""}
+          {cart.reduce((acc, cur) => {
+            const result = (acc += cur.quantity * cur.price);
+            return Math.round(result);
+          }, 0)}
+        </span>
+      </aside>
     </section>
   );
 };

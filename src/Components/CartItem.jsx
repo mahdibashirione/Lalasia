@@ -27,7 +27,13 @@ const CartItem = ({ product }) => {
         {/* color */}
         <p className="text-sm  md:text-base flex items-center">
           Color :
-          <span className={`block w-4 h-4 ml-2 ${product.colors[0]}`}></span>
+          <span
+            className={`block w-6 h-6 ml-2 rounded ${
+              product.colorSelect === "bg-white"
+                ? `${product.colorSelect} border-2`
+                : product.colorSelect
+            }`}
+          ></span>
         </p>
         {/* price */}
         <p className="text-sm  md:text-base flex items-center">

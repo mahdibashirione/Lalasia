@@ -20,7 +20,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="container flex flex-col items-center gap-y-8 md:flex-row md:justify-between px-4 py-8 border-t md:py-12 lg:py-16 md:items-start">
+    <footer className="container flex flex-col items-center gap-y-8 md:flex-row md:justify-between px-4 py-8 pb-28 border-t md:py-12 lg:py-16 md:items-start">
       <article className="w-full">
         <img className="md:hidden" src="/images/main-logo.png" />
         <img className="hidden md:block" src="/images/main-logo-lg.png" />

@@ -13,6 +13,11 @@ const SingleProduct = () => {
   const slider = useRef();
   const [isMoreDetail, setIsMoreDetail] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
+  const [colorSelect, setColorSelect] = useState("");
+  const { cart } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const { successToast, errorToast } = useToast();
+  const product = state.product;
   const products = [
     {
       id: 1,
@@ -27,7 +32,7 @@ const SingleProduct = () => {
       category: "Chair",
       name: "White Aesthetic Chair",
       description: "Combination of wood and wool",
-      price: "6347",
+      price: 63.47,
       tags: "chair",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -39,7 +44,7 @@ const SingleProduct = () => {
       category: "Lamp",
       name: "Bardono Smart Lamp",
       description: "Easy to use with bluetooth connection",
-      price: "6223",
+      price: 62.23,
       tags: "lamp",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -51,7 +56,7 @@ const SingleProduct = () => {
       category: "Sofa",
       name: "Sofa Empuk Banget",
       description: "Using kapuk randu material",
-      price: "5839",
+      price: 58.39,
       tags: "sofa",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -63,7 +68,7 @@ const SingleProduct = () => {
       category: "Living Room",
       name: "Wooden Bookshelf",
       description: "Combination of wood and wool",
-      price: "7988",
+      price: 79.88,
       tags: "living-room",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -75,7 +80,7 @@ const SingleProduct = () => {
       category: "Decoration",
       name: "Plant With Clay Stand",
       description: "Combination of wood and wool",
-      price: "6149",
+      price: 61.49,
       tags: "decoration",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
@@ -87,16 +92,12 @@ const SingleProduct = () => {
       category: "Decoration",
       name: "Oval Gold Mirror",
       description: "Combination of wood and wool",
-      price: "3243",
+      price: 32.43,
       tags: "decoration",
       detail:
         "Faucibus facilisi morbi pharetra quis sed. Vitae suspendisse facilisis facilisis ligula felis et a parturient aenean. Ac maecenas ultricies felis risus scelerisque duis posuere...",
     },
   ];
-  const { cart } = useSelector((state) => state);
-  const dispatch = useDispatch();
-  const { successToast, errorToast } = useToast();
-  const product = state.product;
 
   useEffect(() => {
     let inCart = cart.findIndex((product) => product.id === state.product.id);
@@ -107,6 +108,9 @@ const SingleProduct = () => {
     setIsInCart(inCart >= 0 ? true : false);
     window.scrollTo({ top: 0 });
   }, [state]);
+  useEffect(() => {
+    handlerColorSelect(product.colors[0]);
+  }, []);
 
   function handleScroll(position) {
     const withWindow = window.innerWidth;
@@ -125,6 +129,10 @@ const SingleProduct = () => {
       }
     }
   }
+
+  const handlerColorSelect = (color) => {
+    colorSelect !== color && setColorSelect(color);
+  };
 
   return (
     <>
@@ -147,11 +155,21 @@ const SingleProduct = () => {
             <p className="text-sm md:text-base">{product.description}</p>
             {/* Colors */}
             <div>
-              <span className="font-bold text-lg md:text-xl mb-1">Color</span>
-              <div className="flex">
+              <span className="font-bold text-lg md:text-xl">Color</span>
+              <div className="flex gap-2 mt-2">
                 {product.colors.map((color, i) => {
                   return (
-                    <div key={i} className={`${color} w-8 h-8 block`}></div>
+                    <button
+                      onClick={(e) => handlerColorSelect(color)}
+                      key={i}
+                      className={`${
+                        colorSelect === color
+                          ? "ring-blue-500"
+                          : "ring-transparent"
+                      } ${
+                        color === "bg-white" ? `${color} border` : color
+                      } w-8 h-8 block rounded ring-[3px] ring-offset-2 duration-200`}
+                    ></button>
                   );
                 })}
               </div>
@@ -182,14 +200,14 @@ const SingleProduct = () => {
             </div>
             {/* price */}
             <span className="font-bold text-2xl md:text-3xl">
-              ${separate(product.price)}
+              ${product.price}
             </span>
             {/* actions */}
             {isInCart <= 0 ? (
               <div className="flex gap-4">
                 <ButtonContain
                   onClick={(e) => {
-                    dispatch(addToCart(product));
+                    dispatch(addToCart({ ...product, colorSelect }));
                     successToast("added product to cart");
                   }}
                   className="py-2 text-bold flex-1"
